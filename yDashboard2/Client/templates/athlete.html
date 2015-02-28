@@ -1,0 +1,17 @@
+﻿<h2>View by Athlete</h2>
+<div class="container">
+    <div class="row">
+        <nav class="col-md-4">
+            <label for="search">Search</label>
+            <input id="search" type="text" ng-model="search.Name" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" />
+            <ul class="nav-scroll">
+                <li ng-repeat="a in athletes | filter:search"><a href ng-click="onNameChange(a)">{{a.Name}}</a></li>
+            </ul>
+        </nav>
+        <div class="col-md-8">
+            <div ng-hide="loadComplete" class="preloader"></div>
+            <h3 ng-hide="selectedAthlete==null">Medal records for {{selectedAthlete.Name}}, sport: {{selectedAthlete.Sport}}</h3>
+            <div google-chart chart="chartObject"></div>
+        </div>
+    </div>
+</div>

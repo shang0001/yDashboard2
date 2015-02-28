@@ -1,0 +1,99 @@
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<!-- EF Runtime content -->
+<edmx:Runtime>
+<!-- SSDL content -->
+<edmx:StorageModels>
+<Schema Namespace="OlympicAthletesDBModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="OlympicAthletesDBModelStoreContainer">
+    <EntitySet Name="OlympicAthletes" EntityType="OlympicAthletesDBModel.Store.OlympicAthletes" store:Type="Tables" store:Name="OlympicAthletes">
+      <DefiningQuery>SELECT 
+[OlympicAthletes].[id] AS [id], 
+[OlympicAthletes].[Athlete] AS [Athlete], 
+[OlympicAthletes].[Age] AS [Age], 
+[OlympicAthletes].[Country] AS [Country], 
+[OlympicAthletes].[Year] AS [Year], 
+[OlympicAthletes].[Closing Ceremony Date] AS [Closing Ceremony Date], 
+[OlympicAthletes].[Sport] AS [Sport], 
+[OlympicAthletes].[Gold Medals] AS [Gold Medals], 
+[OlympicAthletes].[Silver Medals] AS [Silver Medals], 
+[OlympicAthletes].[Bronze Medals] AS [Bronze Medals], 
+[OlympicAthletes].[Total Medals] AS [Total Medals]
+FROM [OlympicAthletes] AS [OlympicAthletes]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OlympicAthletes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+-->
+  <EntityType Name="OlympicAthletes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Athlete" Type="nvarchar" MaxLength="255" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Closing Ceremony Date" Type="datetime" />
+    <Property Name="Sport" Type="nvarchar" MaxLength="255" />
+    <Property Name="Gold Medals" Type="int" />
+    <Property Name="Silver Medals" Type="int" />
+    <Property Name="Bronze Medals" Type="int" />
+    <Property Name="Total Medals" Type="int" />
+  </EntityType>
+</Schema>
+</edmx:StorageModels>
+<!-- CSDL content -->
+<edmx:ConceptualModels>
+<Schema Namespace="OlympicAthletesDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="OlympicAthletesDBEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="OlympicAthletes" EntityType="OlympicAthletesDBModel.OlympicAthlete" />
+  </EntityContainer>
+  <EntityType Name="OlympicAthlete">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Athlete" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Country" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="Closing_Ceremony_Date" Type="DateTime" />
+    <Property Name="Sport" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Gold_Medals" Type="Int32" />
+    <Property Name="Silver_Medals" Type="Int32" />
+    <Property Name="Bronze_Medals" Type="Int32" />
+    <Property Name="Total_Medals" Type="Int32" />
+  </EntityType>
+</Schema>
+</edmx:ConceptualModels>
+<!-- C-S mapping content -->
+<edmx:Mappings>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OlympicAthletesDBModelStoreContainer" CdmEntityContainer="OlympicAthletesDBEntities">
+    <EntitySetMapping Name="OlympicAthletes">
+      <EntityTypeMapping TypeName="OlympicAthletesDBModel.OlympicAthlete">
+        <MappingFragment StoreEntitySet="OlympicAthletes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Athlete" ColumnName="Athlete" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Closing_Ceremony_Date" ColumnName="Closing Ceremony Date" />
+          <ScalarProperty Name="Sport" ColumnName="Sport" />
+          <ScalarProperty Name="Gold_Medals" ColumnName="Gold Medals" />
+          <ScalarProperty Name="Silver_Medals" ColumnName="Silver Medals" />
+          <ScalarProperty Name="Bronze_Medals" ColumnName="Bronze Medals" />
+          <ScalarProperty Name="Total_Medals" ColumnName="Total Medals" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
+</edmx:Mappings>
+</edmx:Runtime>
+<!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+<edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+<Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
+<edmx:Options><DesignerInfoPropertySet><DesignerProperty Name="ValidateOnBuild" Value="True" /><DesignerProperty Name="EnablePluralization" Value="True" /><DesignerProperty Name="IncludeForeignKeysInModel" Value="True" /><DesignerProperty Name="UseLegacyProvider" Value="False" /><DesignerProperty Name="CodeGenerationStrategy" Value="None" /></DesignerInfoPropertySet></edmx:Options>
+<edmx:Diagrams />
+</edmx:Designer></edmx:Edmx>

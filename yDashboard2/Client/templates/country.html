@@ -1,0 +1,29 @@
+﻿<h2>View by Country</h2>
+<select ng-model="chartObject.type">
+    <option value="PieChart">Pie Chart</option>
+    <option value="LineChart">Line Chart</option>
+    <option value="BarChart">Bar Chart</option>
+    <option value="ColumnChart">Column Chart</option>
+</select>
+<select ng-model="country" ng-change="onCountryChange()">
+    <option value="Canada">Canada</option>
+    <option value="United States">United States</option>
+    <option value="China">China</option>
+    <option value="Russia">Russia</option>
+</select>
+<div>
+    <label for="hideGold">
+        <input id="hideGold" type="checkbox" ng-model="hideGold" ng-change="selectionChange()" class="ng-pristine ng-valid">
+        Hide Gold
+    </label>
+    <label for="hideSilver">
+        <input id="hideSilver" type="checkbox" ng-model="hideSilver" ng-change="selectionChange()" class="ng-pristine ng-valid">
+        Hide Silver
+    </label>
+    <label for="hideBronze">
+        <input id="hideBronze" type="checkbox" ng-model="hideBronze" ng-change="selectionChange()" class="ng-pristine ng-valid">
+        Hide Bronze
+    </label>
+</div>
+<div ng-hide="loadComplete" class="preloader"></div>
+<div google-chart chart="chartObject"></div>
