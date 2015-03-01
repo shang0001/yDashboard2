@@ -13,7 +13,7 @@ namespace yDashboard2
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class OlympicAthletesDBEntities : DbContext
+    public partial class OlympicAthletesDBEntities : DbContext, IOlympicAthletesDbEntities
     {
         public OlympicAthletesDBEntities()
             : base("name=OlympicAthletesDBEntities")

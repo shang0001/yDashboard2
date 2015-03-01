@@ -19,9 +19,6 @@ namespace yDashboard2.Models
             };
         }
 
-        public MedalRecordDto()
-        {
-            
-        }
+        public MedalRecordDto() { }
     }
 }

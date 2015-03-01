@@ -131,6 +131,7 @@
     <Compile Include="Controllers\MedalRecordsController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IOlympicAthletesDBEntities.cs" />
     <Compile Include="Models\AthleteDTO.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -158,15 +159,52 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\test\lib\angular-mocks.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\test\lib\jasmine-2.2.0\boot.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\test\lib\jasmine-2.2.0\console.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\test\lib\jasmine-2.2.0\jasmine-html.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\test\lib\jasmine-2.2.0\jasmine.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\test\lib\jasmine-2.2.0\jasmine.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\test\lib\jasmine-2.2.0\jasmine_favicon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\test\SpecRunner.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\test\spec\ControllerSpec.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\test\spec\PlayerSpec.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\test\spec\SpecHelper.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
     <Content Include="App_Data\OlympicAthletesDB.sdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Client\fonts\glyphicons-halflings-regular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Client\images\gettestr-large-spinner-orange.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Client\images\intouch-insights.png" />
     <Content Include="Client\js\angular-route.min.js.map">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -180,6 +218,16 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>OlympicAthletesDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Client\fonts\glyphicons-halflings-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\fonts\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\fonts\glyphicons-halflings-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Client\test\MIT.LICENSE" />
     <None Include="OlympicAthletesDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>OlympicAthletesDB.Context.cs</LastGenOutput>
@@ -228,9 +276,6 @@
     <Content Include="Client\css\Site.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Client\js\angular-mocks.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Client\js\angular-route.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -268,6 +313,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Client\templates\country.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\templates\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Client\templates\year.html">

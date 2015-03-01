@@ -11,13 +11,23 @@ namespace yDashboard2.Controllers
     [RoutePrefix("api/athletes")]
     public class AthletesController : ApiController
     {
-        private OlympicAthletesDBEntities db = new OlympicAthletesDBEntities();
+        private IOlympicAthletesDbEntities db = new OlympicAthletesDBEntities();
+
+        public AthletesController()
+        {
+        }
+
+        public AthletesController(IOlympicAthletesDbEntities db)
+        {
+            this.db = db;
+        }
 
         [Route("")]
         public IEnumerable<AthleteDto> Get()
         {
             return db.OlympicAthletes.AsEnumerable()
                .GroupBy(r => r.Athlete)
+               .OrderBy(r => r.Key)
                .Select(g => new AthleteDto
                {
                    Name = g.Key, 
@@ -36,9 +46,9 @@ namespace yDashboard2.Controllers
                    c = new List<Object>()
                     {
                         new {v = g.Key},
-                        new {v = g.Sum(r => r.Bronze_Medals)},
+                        new {v = g.Sum(r => r.Gold_Medals)},
                         new {v = g.Sum(r => r.Silver_Medals)},
-                        new {v = g.Sum(r => r.Gold_Medals)}
+                        new {v = g.Sum(r => r.Bronze_Medals)}
                     }
                });
         }

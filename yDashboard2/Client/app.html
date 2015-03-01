@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/Site.css" />
 </head>
-<body>
+<body ng-app="dashboardApp">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -21,20 +21,21 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="app.html#/year">By Year</a></li>
-                    <li><a href="app.html#/country">By Country</a></li>
-                    <li><a href="app.html#/athlete">By Athlete</a></li>
+                    <li><a href="#/year">By Year</a></li>
+                    <li><a href="#/country">By Country</a></li>
+                    <li><a href="#/athlete">By Athlete</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        <div ng-app="dashboardApp">
-            <div ng-view></div>
+    <div class="container body-content" ng-controller="MainCtrl">
+        <h2 id="routeError" class="text-danger weak-hide" ng-show="routeChangeError">Failed to load page content</h2>
+        <div>
+        <div ng-view></div>
         </div>
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
 

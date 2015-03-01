@@ -2,16 +2,18 @@
 <div class="container">
     <div class="row">
         <nav class="col-md-4">
-            <label for="search">Search</label>
+            <h3 for="search">Search</h3>
             <input id="search" type="text" ng-model="search.Name" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" />
+            <h4 ng-hide="athletes!=null">Loading athletes</h4>
             <ul class="nav-scroll">
                 <li ng-repeat="a in athletes | filter:search"><a href ng-click="onNameChange(a)">{{a.Name}}</a></li>
             </ul>
         </nav>
         <div class="col-md-8">
-            <div ng-hide="loadComplete" class="preloader"></div>
+            <h3 ng-show="athletes!=null && selectedAthlete==null">Please search and select an athlete from left side list</h3>
+            <div ng-show="selectedAthlete!=null" ng-hide="loadComplete" class="preloader"></div>
             <h3 ng-hide="selectedAthlete==null">Medal records for {{selectedAthlete.Name}}, sport: {{selectedAthlete.Sport}}</h3>
-            <div google-chart chart="chartObject"></div>
+            <div ng-hide="selectedAthlete==null" google-chart chart="chartObject"></div>
         </div>
     </div>
 </div>
