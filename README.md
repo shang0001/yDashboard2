@@ -20,7 +20,7 @@ This is a dashboard application to display the sample dataset "Medals Won by Oly
 
 # Technical Factors
 1. Front-end: AngularJS, Google Charts, Bootstrap, HTML5, CSS3.
-2. Back-end: .NET Framework 4.5, C#, OWIN, ASP.NET Web Api 2.
+2. Back-end: .NET Framework 4.5, C#, OWIN, Entity Framework 6, ASP.NET Web Api 2.
 3. Testing: Visual Studio Unit Testing Framework, Jasmine.
 4. Database: SQL Server Compact 4.0
 
@@ -28,10 +28,11 @@ This is a dashboard application to display the sample dataset "Medals Won by Oly
 1. For easy deployment and testing purpose, this is a self-hosted web applicatino with embedded database. The compiled binaries of yDashboard2 project, i.e. the "bin/Debug" folder, can be copied to another Windows 7 + .NET 4.5 computer. Visual Studio/IIS/SQL Server is not mandatory to run this application.
 2. The client is a single page application using AngularJS. I would like to add ngResource module in the next commit to use the REST API as an object.
 3. The back-end is a REST API powered by ASP.NET Web Api 2. I use attribute routing to decouple the routes from the controller and action names, which is flexible to add more actions in one controller.
-4. The application should be upgraded to a Windows Service, so that the System Administrator can keep it running on the server.
-5. End to end test scenarios should be added in next commit.
-6. Web Api's "async" actions should be implemented for less server resource usage.
-7. Cache (both server side and client side) should be enabled for better performance.
+4. I use Entity Framework Database First approach to generate the EDM file from existing database, and queries are implemented using Linq.
+5. The application should be upgraded to a Windows Service, so that the System Administrator can keep it running on the server.
+6. End to end test scenarios should be added in next commit.
+7. Web Api's "async" actions should be implemented for less server resource usage.
+8. Cache (both server side and client side) should be enabled for better performance.
 
 # Known Issues
 1. In View by Country page, the pie chart stops to response after changing country.
