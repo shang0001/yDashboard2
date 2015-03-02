@@ -150,12 +150,12 @@ namespace yDashboard2Test
         public void TestByCountryMethod()
         {
             var controller = new MedalRecordsController(db);
-            var result = controller.GetMedalRecordsByCountry("Canada");
+            var result = controller.GetByCountry("Canada");
 
             //Check for 3 years
             Assert.AreEqual(3, result.Count());
 
-            //Check for each country
+            //Check for each year
             Assert.AreEqual(1, result.Count(r => GetIntValue(r.c.First()) == 2004));
             Assert.AreEqual(1, result.Count(r => GetIntValue(r.c.First()) == 2008));
             Assert.AreEqual(1, result.Count(r => GetIntValue(r.c.First()) == 2012));
@@ -193,7 +193,71 @@ namespace yDashboard2Test
         public void TestByCountryMethod_EmptyResult()
         {
             var controller = new MedalRecordsController(db);
-            var result = controller.GetMedalRecordsByCountry("Fake Country Name");
+            var result = controller.GetByCountry("Fake Country Name");
+
+            //Check for 0 
+            Assert.AreEqual(0, result.Count());
+        }
+
+        [TestMethod,
+         Description("Validates the result of GetByCountryYear method.")]
+        public void TestGetByCountryYear()
+        {
+            var controller = new MedalRecordsController(db);
+            var result = controller.GetByCountryYear("Canada", 2008);
+
+            //Check for 1 sport
+            Assert.AreEqual(1, result.Count());
+
+            //Check for each sport
+            Assert.AreEqual(1, result.Count(r => GetStringValue(r.c.First()) == "Ice Hockey"));
+
+            //Check for 2008
+            var rIceHockey = result.Single(r => GetStringValue(r.c.First()) == "Ice Hockey");
+            //Canada's Bronze medals of Ice Hockey in 2008
+            Assert.AreEqual(0, GetIntValue(rIceHockey.c.ElementAt(1)));
+            //Canada's Silver medals of Ice Hockey in 2008
+            Assert.AreEqual(0, GetIntValue(rIceHockey.c.ElementAt(2)));
+            //Canada's Gold medals of Ice Hockey in 2008
+            Assert.AreEqual(1, GetIntValue(rIceHockey.c.ElementAt(3)));
+        }
+
+        [TestMethod,
+         Description("Validates whether the GetByCountryYear method returns an empty result.")]
+        public void TestGetByCountryYear_EmptyResult()
+        {
+            var controller = new MedalRecordsController(db);
+            var result = controller.GetByCountryYear("Fake Country Name", 2025);
+
+            //Check for 0 
+            Assert.AreEqual(0, result.Count());
+        }
+
+        [TestMethod,
+         Description("Validates the result of GetByCountryYearMedal method.")]
+        public void TestGetByCountryYearMedal()
+        {
+            var controller = new MedalRecordsController(db);
+            var result = controller.GetByCountryYearMedal("China", 2008, "Gold");
+
+            //Check for 1 sport
+            Assert.AreEqual(1, result.Count());
+
+            //Check for each sport
+            Assert.AreEqual(1, result.Count(r => GetStringValue(r.c.First()) == "Table Tennis"));
+
+            //Check for Table Tennis
+            var rTableTennies = result.Single(r => GetStringValue(r.c.First()) == "Table Tennis");
+            //China's Gold medals of Table Tennis in 2008
+            Assert.AreEqual(1, GetIntValue(rTableTennies.c.ElementAt(1)));
+        }
+
+        [TestMethod,
+         Description("Validates whether the GetByCountryYearMedal method returns an empty result.")]
+        public void TestGetByCountryYearMedal_EmptyResult()
+        {
+            var controller = new MedalRecordsController(db);
+            var result = controller.GetByCountryYearMedal("Fake Country Name", 2025, "Nothing");
 
             //Check for 0 
             Assert.AreEqual(0, result.Count());

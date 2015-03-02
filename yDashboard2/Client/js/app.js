@@ -50,6 +50,7 @@ dashboardControllers.value("genericOptions", {
 });
 
 dashboardControllers.controller("MainCtrl", function ($rootScope, $scope) {
+    //Add error message to the page for any ngRoute error.
     angular.element('#routeError').removeClass('weak-hide');
     $rootScope.$on("$routeChangeSuccess",
         function (event, current, previous, rejection) {

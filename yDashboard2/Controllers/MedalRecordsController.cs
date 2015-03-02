@@ -35,11 +35,12 @@ namespace yDashboard2.Controllers
 
             if (years.Any())
             {
-                var selectedRecords = GetByYear(2012);
+                int defaultYear = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["defaultYear"]);
+                var selectedRecords = GetByYear(defaultYear);
                 return new
                 {
                     Years = years,
-                    InitialYear = 2012,
+                    InitialYear = defaultYear,
                     InitialYearMedalRecords = selectedRecords
                 };
             }
@@ -79,11 +80,12 @@ namespace yDashboard2.Controllers
 
             if (countries.Any())
             {
-                var selectedRecords = GetByCountry("Canada");
+                string defaultCountry = System.Configuration.ConfigurationManager.AppSettings["defaultCountry"];
+                var selectedRecords = GetByCountry(defaultCountry);
                 return new
                 {
                     Countries = countries.Select(c => new { label = c, value = c }),
-                    InitialCountryIndex = countries.FindIndex(c => c == "Canada"),
+                    InitialCountryIndex = countries.FindIndex(c => c == defaultCountry),
                     InitialCountryMedalRecords = selectedRecords
                 };
             }
