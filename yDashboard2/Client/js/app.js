@@ -5,6 +5,7 @@ var app = angular.module('dashboardApp', [
     'dashboardControllers'
 ]).config(['$routeProvider',
   function ($routeProvider) {
+      // Configure routes for ngView
       $routeProvider.
         when('/year', {
             templateUrl: '/client/templates/year.html',

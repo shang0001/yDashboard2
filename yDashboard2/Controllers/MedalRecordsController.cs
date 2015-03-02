@@ -24,7 +24,8 @@ namespace yDashboard2.Controllers
             this.db = db;
         }
 
-        // GET: api/MedalRecords
+        // GET: api/years/year-only.
+        // Retrieve Olympic Games years with the default year's medal records.
         [Route("years/year-only")]
         public Object GetAllYears()
         {
@@ -51,7 +52,7 @@ namespace yDashboard2.Controllers
             };
         }
 
-        // GET: api/MedalRecords
+        // Retrieve medal records for a specific year.
         [Route("years/{year:int}")]
         public IEnumerable<MedalRecordDto> GetByYear(int year)
         {
@@ -70,6 +71,7 @@ namespace yDashboard2.Controllers
                 });
         }
 
+        // Retrieve the athlete's countries with the medal records of default country.
         [Route("countries/country-only")]
         public Object GetAllCountries()
         {
@@ -96,7 +98,7 @@ namespace yDashboard2.Controllers
             };
         }
 
-
+        // Retrieve medal records of a specific country.
         [Route("countries/{country}")]
         public IEnumerable<MedalRecordDto> GetByCountry(string country)
         {
@@ -115,6 +117,7 @@ namespace yDashboard2.Controllers
                 });
         }
 
+        // Retrieve the medal records for a specific country in a specific year.
         [Route("years/{year:int}/{country}")]
         [Route("countries/{country}/{year:int}")]
         public IEnumerable<MedalRecordDto> GetByCountryYear(string country, int year)
@@ -134,6 +137,7 @@ namespace yDashboard2.Controllers
                 });
         }
 
+        // Retrieve the specific type of medal records for a specific country in a sepcific year.
         [Route("years/{year:int}/{country}/{medal}")]
         [Route("countries/{country}/{year:int}/{medal}")]
         public IEnumerable<MedalRecordDto> GetByCountryYearMedal(string country, int year, string medal)

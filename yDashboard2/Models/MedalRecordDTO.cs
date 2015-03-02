@@ -6,6 +6,7 @@ using System.Web;
 
 namespace yDashboard2.Models
 {
+    // This is a Data Transfer Object(DTO) class to represent a data record that can be read by Google Charts.
     public class MedalRecordDto
     {
         public IList<Object> c { get; set; }

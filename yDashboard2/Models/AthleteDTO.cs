@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace yDashboard2.Models
 {
+    // This is a Data Transfer Object(DTO) class to represent an athlete.
     public class AthleteDto
     {
         public string Name { get; set; }

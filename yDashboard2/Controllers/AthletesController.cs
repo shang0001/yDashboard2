@@ -22,6 +22,7 @@ namespace yDashboard2.Controllers
             this.db = db;
         }
 
+        // Retrieve all athletes.
         [Route("")]
         public IEnumerable<AthleteDto> Get()
         {
@@ -35,6 +36,7 @@ namespace yDashboard2.Controllers
                });
         }
 
+        // Retrieve one specific athlete.
         [Route("{name}")]
         public IEnumerable<MedalRecordDto> GetAthlete(string name)
         {
