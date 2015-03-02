@@ -9,19 +9,20 @@ This is a dashboard application to display the sample dataset "Medals Won by Oly
 3. Pull yDashboard2 solution in VS2013.
 4. Build the solution, which should automatically restore all NuGet packages.
 5. Check <appSettings> section in the app.config of the yDashboard2 project, change the "port" to the desired port number if necessary.
-6. Run the yDashboard2 project.
+6. Run the yDashboard2 project. There should be a command prompt window open, keep it open.
 7. Open browser, go to "http://localhost:[your desired port number]/Client/app.html"
-8. Start to use the application.
+8. Start to use the application in browser.
+9. To exit, simply press "Enter" in the command prompt window.
 
 # To test
-For server-side test, run tests developed in yDashboard2Test project.
-For client-side test, run the application firstly, then open browser to "http://localhost:[your desired port number]/Client/test/specrunner.html". This will run all test cases developed in Jasmine and show the test report.
+1. For server-side test, run tests developed in yDashboard2Test project.
+2. For client-side test, run the application firstly, then open browser to "http://localhost:[your desired port number]/Client/test/specrunner.html". This will run all test cases developed in Jasmine and show the test report.
 
 # Technical Factors
-Front-end: AngularJS, Google Charts, Bootstrap, HTML5, CSS3
-Back-end: .NET Framework 4.5, C#, OWIN, ASP.NET Web Api 2 
-Testing: Visual Studio Unit Testing Framework, Jasmine
-Database: SQL Server Compact 4.0
+1. Front-end: AngularJS, Google Charts, Bootstrap, HTML5, CSS3.
+2. Back-end: .NET Framework 4.5, C#, OWIN, ASP.NET Web Api 2.
+3. Testing: Visual Studio Unit Testing Framework, Jasmine.
+4. Database: SQL Server Compact 4.0
 
 # Development Notes
 1. For easy deployment and testing purpose, this is a self-hosted web applicatino with embedded database. The compiled binaries of yDashboard2 project, i.e. the "bin/Debug" folder, can be copied to another Windows 7 + .NET 4.5 computer. Visual Studio/IIS/SQL Server is not mandatory to run this application.
